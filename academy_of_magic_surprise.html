@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171229">
+<title>أكاديمية السحر والابتسامات ✨</title>
+<style>
+:root{--night:#171229;--panel:#251d3d;--panel2:#302449;--gold:#f6d58b;--pink:#ffbedb;--lilac:#d8c8ff;--ink:#fff8ff;--muted:#c9bfdc;--line:#57476f}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;background:radial-gradient(ellipse at 10% 0%,#50365f 0,transparent 33%),radial-gradient(ellipse at 100% 90%,#382752 0,transparent 35%),var(--night);padding:18px 13px 36px;overflow-x:hidden}
+body:before{content:"✦  ·  ✧       ✦      ·       ✧     ✦";position:fixed;top:9%;left:-20px;right:-20px;color:#f6d58b30;letter-spacing:18px;font-size:24px;pointer-events:none;white-space:nowrap}
+main{max-width:610px;margin:auto;position:relative}
+header{text-align:center;padding:20px 10px 12px}
+.crest{width:76px;height:76px;margin:0 auto 15px;border:1px solid #c7a86d;border-radius:50%;display:grid;place-items:center;font-size:35px;background:#ffffff08;box-shadow:0 0 35px #d9b56c20}
+.kicker{color:var(--gold);font-size:11px;letter-spacing:2px;font-weight:800}
+h1{font-size:clamp(29px,7vw,43px);line-height:1.3;margin:10px 0 12px}
+header p{max-width:470px;margin:0 auto;color:var(--muted);line-height:1.95}
+.pills{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-top:17px}
+.pill{border:1px solid var(--line);border-radius:30px;padding:6px 11px;font-size:12px;color:var(--lilac);background:#ffffff05}
+.card{border:1px solid var(--line);background:linear-gradient(145deg,#302447f2,#211a36f5);border-radius:25px;padding:clamp(18px,5vw,28px);margin-top:17px;box-shadow:0 18px 55px #08051050}
+.progressrow{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;margin-bottom:10px}
+.progress{height:5px;background:#4b3b60;border-radius:10px;overflow:hidden;margin-bottom:22px}
+#bar{height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--gold));transition:width .35s}
+.tag{font-size:12px;color:var(--gold);font-weight:800}
+h2{font-size:24px;line-height:1.5;margin:8px 0}
+p{line-height:1.95}
+.story{color:#e5dced;margin:10px 0}
+.riddle{background:#19142a;border:1px solid #4b3b61;border-radius:17px;padding:17px;margin:18px 0;line-height:2}
+.options{display:grid;gap:10px;margin-top:14px}
+button{font:inherit;cursor:pointer;transition:transform .15s,filter .15s}
+button:active{transform:scale(.985)}
+.choice{padding:14px 15px;text-align:right;color:var(--ink);background:#3a2c50;border:1px solid #68527d;border-radius:14px}
+.choice:hover{filter:brightness(1.18)}
+.choice:disabled{cursor:default;opacity:.78}
+.primary{width:100%;border:0;border-radius:15px;padding:14px 16px;margin-top:14px;background:linear-gradient(100deg,var(--gold),var(--pink));color:#2b1c37;font-weight:850}
+.secondary{width:100%;border:1px solid #705985;border-radius:15px;padding:12px;background:transparent;color:var(--lilac);margin-top:10px}
+.feedback{min-height:26px;color:var(--pink);font-weight:700;line-height:1.8;margin-top:12px}
+.hidden{display:none!important}
+.note{background:#fff0f7;color:#49304c;border-radius:17px;padding:18px;line-height:2;white-space:pre-line;margin-top:15px}
+.gift{border:1px dashed #b79cce;border-radius:17px;padding:18px;text-align:center;margin-top:16px;background:#ffffff06}
+.gift button{background:transparent;border:0;font-size:50px;display:block;margin:0 auto 6px}
+.small{font-size:12px;color:var(--muted)}
+footer{text-align:center;color:#9f91b4;font-size:12px;padding:22px 10px}
+a{color:inherit}
+</style>
+</head>
+<body>
+<main>
+<header>
+ <div class="crest">🪄</div>
+ <div class="kicker">THE ACADEMY OF MAGIC & GOOD MOODS</div>
+ <h1>أكاديمية السحر<br>والابتسامات ✨</h1>
+ <p>وصلتكِ رسالة مختومة بالشمع من عالمٍ سريّ…<br>فيه ألغاز غريبة، وسحر قليل، وشخص يتمنى أن يسرق منكِ ضحكة.</p>
+ <div class="pills"><span class="pill">🔮 مغامرة سرّية</span><span class="pill">🗝️ 5 اختبارات</span><span class="pill">💌 رسالة بالنهاية</span></div>
+</header>
+<section class="card" id="game">
+ <div class="progressrow"><span id="stage">المرحلة ١ من ٥</span><span id="points">٠ بلورات سحرية</span></div>
+ <div class="progress"><div id="bar"></div></div>
+ <div class="tag" id="chapter">الفصل الأول · بوابة القلعة</div>
+ <h2 id="title">رسالة من البومة الملكية 🦉</h2>
+ <p class="story" id="story"></p>
+ <div class="riddle" id="riddle"></div>
+ <div class="options" id="options"></div>
+ <div class="feedback" id="feedback" aria-live="polite"></div>
+ <button class="primary hidden" id="next">تابعي المغامرة ←</button>
+</section>
+<section class="card hidden" id="ending">
+ <div class="tag">تمّت المهمة بنجاح ✨</div>
+ <h2>لقد وجدتِ الكنز الحقيقي 💗</h2>
+ <p class="story">قد تكونين توقعتِ صندوقًا مليئًا بالذهب… لكن الساحر المسؤول عن الميزانية أخذ إجازة، فاضطررنا نكتفي بشيء ألطف. 😂</p>
+ <div class="gift"><button id="giftButton" aria-label="افتحي الرسالة">🎁</button><strong>اضغطي على الهدية لفتح الرسالة السرّية</strong><div class="small">تحذير: قد تسبب ابتسامة مفاجئة.</div></div>
+ <div class="note hidden" id="letter"></div>
+ <button class="primary hidden" id="more">اسحبي رسالة سحرية إضافية ✨</button>
+ <div class="note hidden" id="extra"></div>
+ <button class="secondary" id="restart">إعادة المغامرة من البداية ↻</button>
+ <p class="small">نصيحة: عدّل الرسالة في الكود لتضيف اسمها أو ذكرى خاصة بينكما قبل إرسال الملف.</p>
+</section>
+<footer>صُنعت بمحبة لشخص يستحق لحظة ألطف 🤍</footer>
+</main>
+<script>
+const missions=[
+ {chapter:"الفصل الأول · بوابة القلعة",title:"رسالة من البومة الملكية 🦉",story:"وصلت البومة وهي لاهثة، ووقعت الرسالة في كوب الشاي بدل يدكِ. البومة تقول إن هذا مقصود… مع أنها غالبًا تحتاج نظارات.",riddle:"لغز البوابة: شيء لا يُشترى بالمال، لكن ممكن يغيّر يوم شخص كامل. أحيانًا يبدأ من موقف سخيف جدًا. ما هو؟",opts:["ابتسامة صادقة 😊","جورب فردي 🧦","واجبات إضافية 📚"],correct:0,good:"أحسنتِ! البوابة فتحت. والبومة تطلب اعتذارًا رسميًا عن الشاي.",bad:"مو هذا الجواب، بس لا تقلقي: حتى أعظم السحرة يرسبون في اختبار الجوارب. الجواب: ابتسامة صادقة."},
+ {chapter:"الفصل الثاني · قاعة الجرعات",title:"جرعة الضحك المفقودة 🧪",story:"الأستاذ جرعات السعادة صنع خلطة عجيبة، لكنه نسي الوصفة. رائحة الخليط تشبه الفراولة… وقليلًا من الفوضى.",riddle:"أي مكوّن يساعدنا أكثر لما يكون اليوم ثقيلًا؟",opts:["شخص يسمعنا بدون أحكام 🤍","أن نقول لأنفسنا: ممنوع الزعل!","نأكل كتاب الكيمياء"],correct:0,good:"صحيح. أحيانًا ما نحتاج حلًّا سحريًا؛ نحتاج شخصًا يسمعنا بلطف.",bad:"الجرعة انفجرت قليلًا 😂 الجواب الأول: شخص يسمعنا بدون أحكام."},
+ {chapter:"الفصل الثالث · غابة المخلوقات الغريبة",title:"حارس الغابة العجيب 🐉",story:"ظهر تنين صغير اسمه فلفول. هو مخيف جدًا… إذا كنتِ قطعة توست. فلفول لن يسمح لكِ بالمرور إلا إذا حللتِ لغزه.",riddle:"أنا شيء كلما شاركتِه مع شخص آخر، ممكن يزيد بدل ما ينقص. ما أنا؟",opts:["الفرح 💗","شحن الهاتف 🔋","آخر حبة بطاطا 🍟"],correct:0,good:"بالضبط! فلفول تأثر لدرجة أنه نفخ فقاعات بدل النار. 🫧",bad:"فلفول نفخ دخانًا على شكل علامة استفهام. الجواب: الفرح؛ مشاركته قد تكبّره."},
+ {chapter:"الفصل الرابع · مرآة الأمنيات",title:"المرآة التي لا تكذب 🌙",story:"هذه المرآة لا تكشف المستقبل، ولا تخبركِ كم مرة فتحتِ الثلاجة بلا سبب. لكنها تسألكِ سؤالًا يستحق دقيقة من اللطف.",riddle:"لو استطعتِ منح نفسكِ شيئًا الآن، ماذا تختارين؟ لا توجد إجابة خاطئة.",opts:["راحة وهدوء 🌙","ضحكة من القلب 😂","حضن دافئ 🤍"],correct:-1,good:"تم حفظ أمنيتكِ في أرشيف القلعة. تستحقين أن تجدي مساحة لما تحتاجينه.",bad:""},
+ {chapter:"الفصل الخامس · خزنة القلب",title:"المفتاح الأخير 🗝️",story:"وصلتِ إلى آخر باب. عليه كتابة ذهبية: «لا يحتاج الإنسان إلى أن يكون بخير طوال الوقت حتى يستحق المحبة». بقي سؤال واحد.",riddle:"كم مرة يجب أن تكوني مثالية حتى تستحقي الاهتمام واللطف؟",opts:["كل يوم، مع واجب منزلي","فقط عندما أكون سعيدة","ولا مرة؛ أستحقهما كما أنا 💗"],correct:2,good:"هذا هو المفتاح! الخزنة انفتحت، وحتى الحارس الغاضب ابتسم قليلًا.",bad:"المفتاح الصحيح هو: ولا مرة. أنتِ تستحقين اللطف كما أنتِ، حتى في الأيام الصعبة."}
+];
+const extras=[
+"تذكير صغير من عالم السحر: مو مطلوب منكِ تلمعي كل يوم. حتى النجوم تختفي خلف الغيوم أحيانًا. ✨",
+"لو كانت الضحكة مادة دراسية، كنتِ أخذتِ علامة كاملة… وأنا كنتُ رسبت لأنني أضحك قبل نهاية النكتة. 😂",
+"رسالة من الساحر المسؤول عن المزاج: خدي وقتكِ، اشربي مي، وكافئي نفسكِ على الأشياء الصغيرة. لا توجد مهمة اسمها لازم أكون سعيدة فورًا. 🤍",
+"لو كان بإمكاني إرسال شيء عبر البومة، كنت أرسلت لكِ يومًا خفيفًا، ووجبة تحبينها، وسببًا سخيفًا للضحك. 🦉"
+];
+let current=0,score=0,answered=false;
+const $=id=>document.getElementById(id);
+function render(){
+ const m=missions[current];answered=false;
+ $("stage").textContent=`المرحلة ${current+1} من ${missions.length}`;
+ $("points").textContent=`${score} بلورات سحرية`;
+ $("bar").style.width=`${current/missions.length*100}%`;
+ $("chapter").textContent=m.chapter;$("title").textContent=m.title;$("story").textContent=m.story;$("riddle").textContent=m.riddle;
+ $("feedback").textContent="";$("next").classList.add("hidden");$("options").innerHTML="";
+ m.opts.forEach((opt,i)=>{const b=document.createElement("button");b.className="choice";b.textContent=opt;b.onclick=()=>choose(i);$("options").appendChild(b)});
+}
+function choose(i){
+ if(answered)return;answered=true;const m=missions[current];
+ [...$("options").children].forEach((b,j)=>{b.disabled=true;if(j===i)b.style.borderColor="#f6d58b"});
+ const right=m.correct<0||i===m.correct;if(right&&m.correct>=0)score+=10;
+ $("points").textContent=`${score} بلورات سحرية`;
+ $("feedback").textContent=right?m.good:m.bad;
+ if(m.correct<0)$("feedback").textContent="اختياركِ مقبول مهما كان. "+(m.good||"أمنيتكِ وصلت إلى المرآة.");
+ $("next").classList.remove("hidden");$("next").textContent=current===missions.length-1?"افتحي خزنة الكنز 💌":"تابعي المغامرة ←";
+}
+$("next").onclick=()=>{current++;if(current<missions.length)render();else{$("game").classList.add("hidden");$("ending").classList.remove("hidden");$("bar").style.width="100%"}};
+$("giftButton").onclick=()=>{$("letter").classList.remove("hidden");$("more").classList.remove("hidden");$("letter").textContent="إلى صاحبة هذه المغامرة الجميلة…\n\nما بعرف إذا كان يومكِ حلو، ولا إذا في شي مضايقكِ حتى لو ما بتعرفي سببه. بس حبيت أعمل لكِ شيئًا صغيرًا، فيه شوية سحر وشوية ضحك، يمكن يترك بقلبكِ أثرًا لطيفًا.\n\nمو لازم تضحكي غصب، ومو لازم تشرحي شعوركِ إذا ما لقيتِ له اسمًا. خدي وقتكِ، وكوني حنونة على نفسكِ. حتى الساحرات عندهن أيام بيحرقوا فيها التوست بدل الجرعة السحرية. 😂\n\nبتمنى تلاقي اليوم لحظة صغيرة تريح قلبكِ، وتذكّري أنكِ غالية وتستحقين اللطف، مو لأنكِ أنجزتِ شيئًا أو لأنكِ دائمًا مبسوطة، بل لأنكِ أنتِ.\n\nهذه المهمة انتهت، لكن أتمنى أن تكون الأيام الحلوة القادمة أكثر من خمس مراحل. 🤍\n\n— من شخص أراد أن يصنع لكِ شيئًا يخصّكِ";$("giftButton").textContent="💌"};
+$("more").onclick=()=>{$("extra").classList.remove("hidden");$("extra").textContent=extras[Math.floor(Math.random()*extras.length)]};
+$("restart").onclick=()=>{current=0;score=0;$("ending").classList.add("hidden");$("game").classList.remove("hidden");$("letter").classList.add("hidden");$("extra").classList.add("hidden");$("more").classList.add("hidden");$("giftButton").textContent="🎁";render();window.scrollTo({top:0,behavior:"smooth"})};
+render();
+</script>
+</body>
+</html>
